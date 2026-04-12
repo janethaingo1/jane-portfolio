@@ -1,0 +1,1 @@
+async function init() { const r = await fetch("chatbot_data.txt"); const t = await r.text(); console.log(t); } init();

@@ -1,4 +1,17 @@
 Expert: Thai Ngo (Jane)
-Positioning: Senior Product Owner
-Experience: 5+ years
+Positioning: AVP — Senior Product Owner, Digital Transformation at Liberty Insurance AMCM
+Summary: Results-driven Senior Product Manager with 7+ years of experience spearheading digital transformation and SaaS/DXaS initiatives. Expert in Agile/Scrum methodologies with a history of driving 80% user adoption and 20% MRR growth across Fintech, Healthtech and Insuretech.
+Core Competencies: Product Management (Agile, Scrum, Kanban, Lean, Product Lifecycle, Customer/User Story Mapping, API Integration), Digital Transformation (DX Strategy, ROI Optimization, Compliance, SaaS/DXaS), APAC Region Team Leadership
+Tools & Tech: JIRA, Azure DevOps, CRM, Middleware (30+ ATS/CRM integrations), eKYC, QR Payments, AI Coding, Figma, SQL, N8N
+Experience 1: Liberty Insurance AMCM | AVP - Senior Product Owner, Digital Transformation | Jan 2022 – Present | Led VN Application Delivery team (10/11 projects met SLA, high NPS). Delivered HK Regional Producer Portal with 7 user journeys and 200+ functionalities across 11 Non-Motor products. Secured 80% user adoption within 12 months for Motor business via Global GDE Program. Led Thailand Sales & Distribution and Legal & Compliance user journeys for Aegis Core System Replacement across APAC.
+Experience 2: MTI Technology | Product Owner Lead | Sep 2018 – Dec 2021 | Led lifecycle for Healthcare/Fintech products, onboarded top-3 Japanese regional banks. Led DX service development (Strategy to SecOps) for a top Japanese digital provider. Managed digital health systems for major Tokyo hospitals (10k–500k annual examinees) and Fintech products (QR payments, Bank APIs, eKYC, POS). Recognized with "Performance A" rating for 3 consecutive years.
+Experience 3: Glandore System VN (vsource) | Product Manager | Jan 2017 – Sep 2018 | Grew MRR by 20% through Client Dashboard & Insights. Optimized recruitment productivity by 21% via automated sourcing tools. Served global firms (Cisco, Adobe, Twitter). Built automated sourcing tools for 60 clients/20 industries.
+Experience 4: UPS Asia Pacific | Segment and Product Manager | Jan 2014 – Jan 2017 | Surpassed annual revenue targets (128% in 2016, 124% in 2015). Developed High-tech GTM strategy for Vietnam. 100% satisfaction score from internal/external peers.
+Education: MBA from Nagoya Business and Commerce University (Japan) & Pepperdine University (USA). Mini-Master Digital Product Management from Boston University.
+Certifications: IELTS 7.0 & CSPO (2021), PMP (2025), AI Coding (2026)
+Awards: Top 3 AI Hackathon Microsoft APAC (2020), Top 2 UNDP Sustainable Development Challenge (2020)
+Volunteer: President of Big Smile Guild (CSR), Disaster Prevention (Japan), U.S Susan Komen "Run for the Cure" at Los Angeles Marathon
+Languages: Vietnamese (Native), English (Advanced), Japanese (Intermediate)
 Location: Ho Chi Minh City, Vietnam
+Contact: jane.thaingo1@gmail.com
+LinkedIn: https://www.linkedin.com/in/jane-thai-ngo-2440a46/ . 1 2 3

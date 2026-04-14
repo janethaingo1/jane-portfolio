@@ -1,1 +1,241 @@
-async function init() { const r = await fetch("chatbot_data.txt"); const t = await r.text(); console.log(t); } init();
+/**
+ * AI Chatbot Logic — Jane Ngo Portfolio
+ * Adapted from Zenith chatbot with dark neon cyan theme
+ */
+
+// API Parameters
+const API_URL = 'https://9router.vuhai.io.vn/v1';
+const API_KEY = 'sk-4bd27113b7dc78d1-lh6jld-f4f9c69f';
+const MODEL_ID = 'ces-chatbot-gpt-5.4';
+
+let KnowledgeBase = "";
+let MessagesMemory = [];
+
+/**
+ * Initialize Knowledge Base from File
+ */
+async function loadKnowledgeBase() {
+    try {
+        const response = await fetch('chatbot_data.txt');
+        if (!response.ok) throw new Error("Could not load knowledge base file.");
+        KnowledgeBase = await response.text();
+        initializeSystemRole();
+    } catch (err) {
+        console.warn("Knowledge base load error, using default fallback.", err);
+        KnowledgeBase = `Expert: Thai Ngo (Jane)
+Positioning: Senior Product Owner & Digital Transformation Leader
+Experience: 5+ years managing SaaS & DXaS products in Agile/Kanban environments
+Expertise: Product Management, Digital Transformation, Agile Leadership, AI & Automation
+Location: Ho Chi Minh City, Vietnam
+Contact: jane.thaingo1@gmail.com
+LinkedIn: https://www.linkedin.com/in/jane-thai-ngo-2440a46/`;
+        initializeSystemRole();
+    }
+}
+
+function initializeSystemRole() {
+    const systemPrompt = {
+        role: "system",
+        content: `You are the exclusive AI Assistant for Thai Ngo (Jane). 
+Below is the Expert's Knowledge Base:
+${KnowledgeBase}
+
+RESPONSE RULES:
+1. You ONLY answer based on the provided Knowledge Base.
+2. All answers MUST be beautifully formatted in Markdown (headings, lists, bold text, etc.).
+3. ALWAYS greet warmly at the start of the conversation.
+4. ALWAYS be clear, concise, and direct.
+5. ALWAYS conclude with an invitation to inquire further about Product Management, Digital Transformation, or AI solutions.
+6. If the user asks beyond the provided scope: Refuse gracefully, explain you are an assistant dedicated to Jane's expertise, and guide them to the contact info in the Knowledge Base.
+7. Keep responses friendly and professional.`
+    };
+    MessagesMemory = [systemPrompt];
+}
+
+/**
+ * DOM Constants
+ */
+const chatToggle = document.getElementById('chat-toggle');
+const chatWindow = document.getElementById('chat-window');
+const chatClose = document.getElementById('chat-close');
+const chatRefresh = document.getElementById('chat-refresh');
+const chatMessages = document.getElementById('chat-messages');
+const chatInput = document.getElementById('chat-input');
+const chatSend = document.getElementById('chat-send');
+
+const DEFAULT_GREETING = "Xin chào! 👋 Tôi là **AI Assistant** của **Thai Ngo (Jane)**. Tôi có thể giúp bạn tìm hiểu về kinh nghiệm Product Management, Digital Transformation và Agile Leadership của Jane. Hãy hỏi tôi bất cứ điều gì!";
+
+/**
+ * Event Listeners
+ */
+chatToggle.addEventListener('click', () => {
+    chatWindow.classList.toggle('hidden');
+    if (!chatWindow.classList.contains('hidden') && chatMessages.children.length === 0) {
+        appendMessage(DEFAULT_GREETING, 'ai');
+    }
+    chatInput.focus();
+});
+
+chatClose.addEventListener('click', () => {
+    chatWindow.classList.add('hidden');
+});
+
+// Refresh Logic
+chatRefresh.addEventListener('click', async () => {
+    const icon = chatRefresh.querySelector('.material-symbols-outlined');
+    
+    // 1. Start spinning animation
+    icon.classList.add('refresh-spin');
+    
+    // 2. Clear all chat history UI
+    chatMessages.innerHTML = '';
+    
+    // 3. Reset logic memory
+    initializeSystemRole();
+    
+    // 4. Display default greeting
+    setTimeout(() => {
+        appendMessage(DEFAULT_GREETING, 'ai');
+    }, 100);
+
+    // 5. Stop animation after exactly 500ms
+    setTimeout(() => {
+        icon.classList.remove('refresh-spin');
+    }, 500);
+});
+
+chatInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        handleSendMessage();
+    }
+});
+
+chatSend.addEventListener('click', handleSendMessage);
+
+/**
+ * Messaging Core Logic
+ */
+async function handleSendMessage() {
+    const userText = chatInput.value.trim();
+    if (!userText) return;
+
+    // Reset input
+    chatInput.value = '';
+    chatInput.style.height = 'auto';
+
+    // User UI update
+    appendMessage(userText, 'user');
+
+    // Typing Animation UI
+    const typingElementId = renderTypingIndicator();
+
+    try {
+        // Prepare context
+        MessagesMemory.push({ role: "user", content: userText });
+
+        // API Call
+        const response = await fetch(`${API_URL}/chat/completions`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${API_KEY}`
+            },
+            body: JSON.stringify({
+                model: MODEL_ID,
+                messages: MessagesMemory,
+                temperature: 0.7
+            })
+        });
+
+        if (!response.ok) throw new Error("API call failed");
+
+        const data = await response.json();
+        const aiMessage = data.choices[0].message.content;
+
+        // Save AI response to history
+        MessagesMemory.push({ role: "assistant", content: aiMessage });
+
+        // Remove typing → Show AI response
+        removeTypingIndicator(typingElementId);
+        appendMessage(aiMessage, 'ai');
+
+    } catch (error) {
+        console.error("AI Communication Error:", error);
+        removeTypingIndicator(typingElementId);
+        appendMessage("Xin lỗi, kết nối hiện đang gặp sự cố. Vui lòng thử lại sau hoặc liên hệ trực tiếp với Jane qua email: **jane.thaingo1@gmail.com**", 'ai');
+    }
+}
+
+/**
+ * UI Rendering Helpers
+ */
+function appendMessage(text, role) {
+    const wrapper = document.createElement('div');
+    wrapper.className = `flex ${role === 'user' ? 'justify-end' : 'justify-start'} mb-4 fade-in-up`;
+    
+    const bubble = document.createElement('div');
+    bubble.className = `max-w-[85%] px-4 py-3 ${role === 'user' ? 'chat-bubble-user text-white' : 'chat-bubble-ai'}`;
+    
+    if (role === 'ai') {
+        const container = document.createElement('div');
+        container.className = 'chat-markdown';
+        container.innerHTML = marked.parse(text);
+        bubble.appendChild(container);
+    } else {
+        bubble.textContent = text;
+        bubble.className += ' text-sm leading-normal';
+    }
+
+    wrapper.appendChild(bubble);
+    chatMessages.appendChild(wrapper);
+    
+    // Auto Scroll Down
+    scrollChatToBottom();
+}
+
+function renderTypingIndicator() {
+    const id = 'typing-' + Date.now();
+    const wrapper = document.createElement('div');
+    wrapper.id = id;
+    wrapper.className = 'flex justify-start mb-4';
+    wrapper.innerHTML = `
+        <div class="chat-bubble-ai px-4 py-3 flex items-center space-x-2">
+            <span class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Processing</span>
+            <div class="typing-indicator">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            </div>
+        </div>
+    `;
+    chatMessages.appendChild(wrapper);
+    scrollChatToBottom();
+    return id;
+}
+
+function removeTypingIndicator(id) {
+    const el = document.getElementById(id);
+    if (el) el.remove();
+}
+
+function scrollChatToBottom() {
+    chatMessages.scrollTo({
+        top: chatMessages.scrollHeight,
+        behavior: 'smooth'
+    });
+}
+
+// Auto-expand textarea
+chatInput.addEventListener('input', function() {
+    this.style.height = 'auto';
+    this.style.height = (this.scrollHeight) + 'px';
+    if (this.scrollHeight > 120) {
+        this.style.overflowY = 'auto';
+    } else {
+        this.style.overflowY = 'hidden';
+    }
+});
+
+// Run
+loadKnowledgeBase();

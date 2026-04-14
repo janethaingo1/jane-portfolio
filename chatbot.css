@@ -1,5 +1,5 @@
 /* ============================================
-   AI Chatbot — Dark Neon Cyan Theme
+   AI Chatbot — Premium Executive White Theme
    Adapted for Jane Ngo Portfolio
    ============================================ */
 
@@ -15,18 +15,18 @@
 .chat-toggle-inner {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #00f2ff 0%, #0080ff 100%);
+    background: #ffffff;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 8px 30px rgba(0, 242, 255, 0.3), 0 0 60px rgba(0, 242, 255, 0.1);
+    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.3), 0 0 60px rgba(255, 255, 255, 0.1);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .chat-toggle-inner:hover {
     transform: scale(1.1);
-    box-shadow: 0 12px 40px rgba(0, 242, 255, 0.4), 0 0 80px rgba(0, 242, 255, 0.15);
+    box-shadow: 0 12px 40px rgba(255, 255, 255, 0.4), 0 0 80px rgba(255, 255, 255, 0.15);
 }
 
 .chat-toggle-inner .material-symbols-outlined {
@@ -41,7 +41,7 @@
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: rgba(0, 242, 255, 0.2);
+    background: rgba(255, 255, 255, 0.2);
     animation: chat-pulse 2.5s infinite;
     pointer-events: none;
 }
@@ -61,9 +61,9 @@
     background: rgba(14, 17, 23, 0.95);
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
-    border: 1px solid rgba(0, 242, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 20px;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 242, 255, 0.05);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 255, 255, 0.05);
     z-index: 9999;
     display: flex;
     flex-direction: column;
@@ -84,8 +84,8 @@
     align-items: center;
     justify-content: space-between;
     padding: 16px 20px;
-    background: rgba(0, 242, 255, 0.04);
-    border-bottom: 1px solid rgba(0, 242, 255, 0.08);
+    background: rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .chat-header-info {
@@ -98,7 +98,7 @@
     position: relative;
     width: 38px;
     height: 38px;
-    background: linear-gradient(135deg, #00f2ff 0%, #0080ff 100%);
+    background: #ffffff;
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -178,9 +178,9 @@
 }
 
 .chat-action-btn:hover {
-    background: rgba(0, 242, 255, 0.08);
-    border-color: rgba(0, 242, 255, 0.2);
-    color: #00f2ff;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
 }
 
 .chat-action-btn .material-symbols-outlined {
@@ -209,7 +209,7 @@
 }
 
 .chat-messages::-webkit-scrollbar-thumb {
-    background: rgba(0, 242, 255, 0.15);
+    background: rgba(255, 255, 255, 0.15);
     border-radius: 10px;
 }
 
@@ -231,14 +231,14 @@
 }
 
 .chat-bubble-user {
-    background: linear-gradient(135deg, #00f2ff 0%, #0080ff 100%);
+    background: #ffffff;
     color: #0a0c10;
     border-radius: 18px 18px 4px 18px;
     padding: 12px 16px;
     max-width: 85%;
     font-weight: 600;
     font-size: 0.85rem;
-    box-shadow: 0 4px 15px rgba(0, 242, 255, 0.15);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
 }
 
 .chat-bubble-ai {
@@ -280,13 +280,14 @@
 
 .chat-markdown strong {
     font-weight: 700;
-    color: #00f2ff;
+    color: #ffffff;
 }
 
 .chat-markdown code {
-    background: rgba(0, 242, 255, 0.1);
-    color: #00f2ff;
-    padding: 0.15rem 0.35rem;    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    padding: 0.15rem 0.35rem;
+    border-radius: 4px;
     font-family: 'Fira Code', 'Consolas', monospace;
     font-size: 0.8em;
 }
@@ -301,7 +302,7 @@
 }
 
 .chat-markdown blockquote {
-    border-left: 3px solid #00f2ff;
+    border-left: 3px solid #ffffff;
     padding-left: 0.8rem;
     color: #808080;
     font-style: italic;
@@ -324,7 +325,7 @@
 .typing-dot {
     width: 6px;
     height: 6px;
-    background: #00f2ff;
+    background: #ffffff;
     border-radius: 50%;
     animation: typing-jump 1.4s infinite ease-in-out;
     opacity: 0.6;
@@ -353,6 +354,10 @@
 
 .uppercase {
     text-transform: uppercase;
+}
+
+.typing-jump {
+    animation: typing-jump 1.4s infinite;
 }
 
 .tracking-widest {
@@ -409,7 +414,7 @@
     align-items: flex-end;
     gap: 10px;
     padding: 16px 20px;
-    border-top: 1px solid rgba(0, 242, 255, 0.06);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
     background: rgba(0, 0, 0, 0.2);
 }
 
@@ -435,13 +440,13 @@
 }
 
 .chat-input-area textarea:focus {
-    border-color: rgba(0, 242, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 .chat-send-btn {
     width: 40px;
     height: 40px;
-    background: linear-gradient(135deg, #00f2ff, #0080ff);
+    background: #ffffff;
     border: none;
     border-radius: 12px;
     display: flex;
@@ -454,7 +459,7 @@
 
 .chat-send-btn:hover {
     transform: scale(1.08);
-    box-shadow: 0 4px 15px rgba(0, 242, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
 }
 
 .chat-send-btn .material-symbols-outlined {

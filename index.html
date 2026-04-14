@@ -1,1 +1,347 @@
-<!DOCTYPE html><html lang="vi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Thai Ngo (Jane) | Senior Product Owner</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="chatbot.css"><script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script></head><body><img src="jane_ngo.png" class="profile-img"><div id="chat-toggle"></div><div id="chat-window" class="hidden"></div><script src="main.js"></script><script src="chatbot.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thai Ngo (Jane) | Senior Product Owner & Digital Transformation Leader</title>
+    <meta name="description" content="Thai Ngo (Jane) - Senior Product Owner & Digital Transformation Leader. Chuyên gia biến ý tưởng thành sản phẩm công nghệ chất lượng cao.">
+    <meta name="keywords" content="Thai Ngo, Jane, Product Owner, Digital Transformation, Agile, SaaS">
+    <meta name="author" content="Thai Ngo (Jane)">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Thai Ngo (Jane) | Portfolio">
+    <meta property="og:description" content="Senior Product Owner & Digital Transformation Leader">
+    <meta property="og:type" content="website">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Marked.js for Markdown rendering in chatbot -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="chatbot.css">
+</head>
+<body>
+
+    <!-- Background Glow Effects -->
+    <div class="blob"></div>
+    <div class="blob"></div>
+    <div class="blob blob-secondary"></div>
+
+    <!-- Particle Canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-accent">J</span>ane<span class="logo-dot">.</span>
+            </a>
+            <div class="nav-links">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Expertise</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu hidden" id="mobile-menu">
+        <a href="#about" class="mobile-link">About</a>
+        <a href="#services" class="mobile-link">Expertise</a>
+        <a href="#experience" class="mobile-link">Experience</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                Available for collaboration
+            </div>
+            <img src="jane_ngo.png" alt="Thai Ngo (Jane)" class="profile-img" id="profile-img">
+            <h1 class="hero-title">
+                Thai Ngo <span class="accent">(Jane)</span>
+            </h1>
+            <p class="hero-subtitle">Senior Product Owner & Digital Transformation Leader</p>
+            <p class="slogan">Chuyên gia trong việc biến ý tưởng thành những sản phẩm công nghệ chất lượng cao và có tác động lớn.</p>
+            <div class="hero-cta">
+                <a href="#services" class="btn-primary" id="btn-explore">
+                    <span>Khám phá ngay</span>
+                    <i class="fas fa-arrow-down"></i>
+                </a>
+                <a href="#contact" class="btn-secondary">
+                    <span>Liên hệ</span>
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number" data-count="5">0</span><span class="stat-plus">+</span>
+                    <span class="stat-label">Năm kinh nghiệm</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number" data-count="20">0</span><span class="stat-plus">+</span>
+                    <span class="stat-label">Dự án thành công</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number" data-count="10">0</span><span class="stat-plus">+</span>
+                    <span class="stat-label">Đối tác quốc tế</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">01 / About</span>
+                <h2 class="section-title">Giới thiệu</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p class="about-lead">Tôi là <strong>Thai Ngo (Jane)</strong> — một người đam mê công nghệ và chuyển đổi số với hơn 5 năm kinh nghiệm trong quản lý sản phẩm SaaS.</p>
+                    <p>Với tư duy chiến lược của một Product Owner và khả năng lãnh đạo của một Scrum Master, tôi chuyên biến những ý tưởng phức tạp thành sản phẩm công nghệ có tác động thực sự.</p>
+                    <p>Hiện tại tôi đang tập trung vào các dự án chuyển đổi số quy mô quốc tế, tối ưu hóa quy trình kinh doanh thông qua AI và tự động hóa.</p>
+                </div>
+                <div class="about-highlights">
+                    <div class="highlight-card">
+                        <i class="fas fa-graduation-cap"></i>
+                        <div>
+                            <h4>Education</h4>
+                            <p>Strategic Product Management</p>
+                        </div>
+                    </div>
+                    <div class="highlight-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Ho Chi Minh City, Vietnam</p>
+                        </div>
+                    </div>
+                    <div class="highlight-card">
+                        <i class="fas fa-language"></i>
+                        <div>
+                            <h4>Languages</h4>
+                            <p>Vietnamese, English</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">02 / Expertise</span>
+                <h2 class="section-title">Core Expertise</h2>
+            </div>
+            <div class="card-container">
+                <div class="card" data-tilt>
+                    <div class="card-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Product Management</h3>
+                    <p>Hơn 5 năm kinh nghiệm quản lý sản phẩm SaaS và DXaS, vận hành trong môi trường Agile/Kanban chuyên nghiệp.</p>
+                    <div class="card-tags">
+                        <span class="tag">SaaS</span>
+                        <span class="tag">DXaS</span>
+                        <span class="tag">Roadmapping</span>
+                    </div>
+                </div>
+                <div class="card" data-tilt>
+                    <div class="card-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Digital Transformation</h3>
+                    <p>Dẫn dắt các dự án chuyển đổi số quy mô quốc tế, tối ưu hóa quy trình kinh doanh và tăng trưởng doanh thu.</p>
+                    <div class="card-tags">
+                        <span class="tag">Strategy</span>
+                        <span class="tag">Automation</span>
+                        <span class="tag">AI</span>
+                    </div>
+                </div>
+                <div class="card" data-tilt>
+                    <div class="card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Agile Leadership</h3>
+                    <p>Tư duy của một Scrum Master và Business Owner, thúc đẩy cải tiến liên tục (Kaizen) trong mọi đội ngũ.</p>
+                    <div class="card-tags">
+                        <span class="tag">Scrum</span>
+                        <span class="tag">Kanban</span>
+                        <span class="tag">Kaizen</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">03 / Experience</span>
+                <h2 class="section-title">Hành trình chuyên môn</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2021 — Hiện tại</span>
+                        <h3>Senior Product Owner</h3>
+                        <p>Quản lý hệ sinh thái sản phẩm SaaS phục vụ hàng nghìn người dùng. Xây dựng roadmap chiến lược và thúc đẩy tăng trưởng doanh thu 40%.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2019 — 2021</span>
+                        <h3>Digital Transformation Lead</h3>
+                        <p>Dẫn dắt các dự án chuyển đổi số tại các tập đoàn lớn. Tự động hóa quy trình và triển khai giải pháp AI.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2017 — 2019</span>
+                        <h3>Product Manager</h3>
+                        <p>Khởi đầu hành trình quản lý sản phẩm, phát triển kỹ năng Agile và hiểu sâu về nhu cầu thị trường.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="tech-stack" id="tech-stack">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">04 / Tools</span>
+                <h2 class="section-title">Công nghệ & Công cụ</h2>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <i class="fab fa-jira"></i>
+                    <span>Jira</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-confluence"></i>
+                    <span>Confluence</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-figma"></i>
+                    <span>Figma</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-project-diagram"></i>
+                    <span>Miro</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-slack"></i>
+                    <span>Slack</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-database"></i>
+                    <span>SQL</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-robot"></i>
+                    <span>AI/ML</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-cogs"></i>
+                    <span>N8N</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Footer -->
+    <footer id="contact">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">05 / Contact</span>
+                <h2 class="section-title">Kết nối với tôi</h2>
+            </div>
+            <p class="footer-desc">Hãy liên hệ nếu bạn muốn hợp tác hoặc trao đổi về các cơ hội chuyển đổi số.</p>
+            <div class="contact-links">
+                <a href="mailto:jane.thaingo1@gmail.com" title="Email" class="contact-btn">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email</span>
+                </a>
+                <a href="https://www.linkedin.com/in/jane-thai-ngo-2440a46/" target="_blank" title="LinkedIn" class="contact-btn">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+            <span class="email-text">jane.thaingo1@gmail.com</span>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Thai Ngo (Jane). All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI Chatbot Widget -->
+    <div id="chat-toggle" class="chat-toggle-btn" aria-label="Open AI Assistant">
+        <div class="chat-toggle-inner">
+            <span class="material-symbols-outlined">smart_toy</span>
+        </div>
+        <div class="chat-toggle-pulse"></div>
+    </div>
+
+    <div id="chat-window" class="chat-glass hidden">
+        <!-- Chat Header -->
+        <div class="chat-header">
+            <div class="chat-header-info">
+                <div class="chat-avatar">
+                    <span class="material-symbols-outlined">smart_toy</span>
+                    <div class="online-pulse"></div>
+                </div>
+                <div>
+                    <h4 class="chat-header-title">Jane's AI Assistant</h4>
+                    <span class="chat-header-status">Online &bull; Ready to assist</span>
+                </div>
+            </div>
+            <div class="chat-header-actions">
+                <button id="chat-refresh" class="chat-action-btn" title="New conversation">
+                    <span class="material-symbols-outlined">refresh</span>
+                </button>
+                <button id="chat-close" class="chat-action-btn" title="Close">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Chat Body -->
+        <div id="chat-messages" class="chat-messages"></div>
+
+        <!-- Chat Input -->
+        <div class="chat-input-area">
+            <textarea id="chat-input" placeholder="Ask me anything about Jane..." rows="1"></textarea>
+            <button id="chat-send" class="chat-send-btn" aria-label="Send message">
+                <span class="material-symbols-outlined">send</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script src="chatbot.js"></script>
+</body>
+</html>

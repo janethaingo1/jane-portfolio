@@ -1,0 +1,146 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2026-06-21",
+  "expert": {
+    "name": "Thai Ngo (Jane)",
+    "title": "AVP — Senior Product Owner & Digital Transformation",
+    "company": "Liberty Insurance AMCM",
+    "location": "Ho Chi Minh City, Vietnam",
+    "email": "jane.thaingo1@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/jane-thai-ngo-2440a46/",
+    "summary": "Results-driven Senior Product Manager with 7+ years of experience spearheading digital transformation and SaaS/DXaS initiatives across Fintech, Healthtech & Insuretech.",
+    "languages": ["Vietnamese (Native)", "English (Advanced)", "Japanese (Intermediate)"]
+  },
+  "kpis": {
+    "yearsExperience": 7,
+    "userAdoptionRate": 80,
+    "mrrGrowth": 20,
+    "projectsSLAMet": 10,
+    "projectsTotal": 11,
+    "revenueTarget2016": 128,
+    "revenueTarget2015": 124,
+    "satisfactionScore": 100,
+    "recruitmentProductivity": 21,
+    "integrations": 30
+  },
+  "projects": [
+    {
+      "id": "liberty-hk-portal",
+      "name": "HK Regional Producer Portal",
+      "company": "Liberty Insurance AMCM",
+      "status": "delivered",
+      "period": "2022–Present",
+      "region": "Hong Kong",
+      "highlights": [
+        "7 user journeys designed",
+        "200+ functionalities delivered",
+        "11 Non-Motor products covered"
+      ],
+      "metrics": { "userAdoption": 80, "slaCompliance": 91 }
+    },
+    {
+      "id": "liberty-apac-aegis",
+      "name": "Aegis Core System Replacement",
+      "company": "Liberty Insurance AMCM",
+      "status": "in-progress",
+      "period": "2022–Present",
+      "region": "APAC (VN, HK, TH)",
+      "highlights": [
+        "Led Thailand Sales & Distribution journeys",
+        "Led Legal & Compliance user journeys",
+        "APAC-wide rollout"
+      ],
+      "metrics": {}
+    },
+    {
+      "id": "mti-healthtech",
+      "name": "Digital Health Systems — Tokyo Hospitals",
+      "company": "MTI Technology",
+      "status": "delivered",
+      "period": "2018–2021",
+      "region": "Japan",
+      "highlights": [
+        "10k–500k annual examinees managed",
+        "Major Tokyo hospital clients",
+        "Performance A rating x3 years"
+      ],
+      "metrics": {}
+    },
+    {
+      "id": "mti-fintech",
+      "name": "Fintech Products — QR Payments & eKYC",
+      "company": "MTI Technology",
+      "status": "delivered",
+      "period": "2018–2021",
+      "region": "Japan",
+      "highlights": [
+        "QR Payments integration",
+        "Bank API integrations",
+        "eKYC implementation",
+        "POS systems"
+      ],
+      "metrics": {}
+    },
+    {
+      "id": "vsource-dashboard",
+      "name": "Client Dashboard & Insights",
+      "company": "Glandore System VN (vsource)",
+      "status": "delivered",
+      "period": "2017–2018",
+      "region": "Global",
+      "highlights": [
+        "20% MRR growth achieved",
+        "21% recruitment productivity boost",
+        "60 clients across 20 industries",
+        "Clients: Cisco, Adobe, Twitter"
+      ],
+      "metrics": { "mrrGrowth": 20, "productivityGain": 21 }
+    },
+    {
+      "id": "ups-hightech-gtm",
+      "name": "High-Tech GTM Strategy — Vietnam",
+      "company": "UPS Asia Pacific",
+      "status": "delivered",
+      "period": "2014–2017",
+      "region": "Vietnam",
+      "highlights": [
+        "128% revenue target 2016",
+        "124% revenue target 2015",
+        "100% satisfaction score"
+      ],
+      "metrics": { "revenueTarget2016": 128, "revenueTarget2015": 124, "satisfactionScore": 100 }
+    }
+  ],
+  "skills": {
+    "methodologies": ["Agile", "Scrum", "Kanban", "Lean", "Product Lifecycle", "Customer Story Mapping", "User Story Mapping"],
+    "digital": ["DX Strategy", "ROI Optimization", "Compliance", "SaaS", "DXaS", "API Integration"],
+    "tools": ["JIRA", "Azure DevOps", "CRM", "Middleware", "eKYC", "QR Payments", "AI Coding", "Figma", "SQL", "N8N"],
+    "domains": ["Fintech", "Healthtech", "Insuretech"]
+  },
+  "education": [
+    {
+      "degree": "MBA",
+      "institutions": ["Nagoya Business and Commerce University (Japan)", "Pepperdine University (USA)"]
+    },
+    {
+      "degree": "Mini-Master Digital Product Management",
+      "institutions": ["Boston University"]
+    }
+  ],
+  "certifications": [
+    { "name": "IELTS 7.0", "year": 2021 },
+    { "name": "CSPO", "year": 2021 },
+    { "name": "PMP", "year": 2025 },
+    { "name": "AI Coding", "year": 2026 }
+  ],
+  "awards": [
+    { "name": "Top 3 AI Hackathon", "org": "Microsoft APAC", "year": 2020 },
+    { "name": "Top 2 Sustainable Development Challenge", "org": "UNDP", "year": 2020 }
+  ],
+  "aiSync": {
+    "schema": "jane-portfolio-master-v1",
+    "allowedConsumers": ["chatbot", "portfolio-widget", "external-ai"],
+    "endpoint": "./master-ai-data.json",
+    "description": "Master data source for all AI integrations on this portfolio. Reference this JSON to stay in sync with latest KPIs, projects, and expert profile."
+  }
+}

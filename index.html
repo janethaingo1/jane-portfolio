@@ -22,6 +22,7 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="chatbot.css">
+    <link rel="stylesheet" href="plugins/project-management/pm-dashboard.css">
 </head>
 <body>
 
@@ -35,6 +36,7 @@
                 <a href="#about" class="nav-link">About</a>
                 <a href="#services" class="nav-link">Expertise</a>
                 <a href="#experience" class="nav-link">Experience</a>
+                <a href="#pm-dashboard" class="nav-link">Dashboard</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
             <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
@@ -50,6 +52,7 @@
         <a href="#about" class="mobile-link">About</a>
         <a href="#services" class="mobile-link">Expertise</a>
         <a href="#experience" class="mobile-link">Experience</a>
+        <a href="#pm-dashboard" class="mobile-link">Dashboard</a>
         <a href="#contact" class="mobile-link">Contact</a>
     </div>
 
@@ -242,11 +245,22 @@
         </div>
     </section>
 
+    <!-- PM Dashboard Section -->
+    <section class="pm-section" id="pm-dashboard">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">04 / Dashboard</span>
+                <h2 class="section-title">Project Management Dashboard</h2>
+            </div>
+            <div id="pm-dashboard-widget" class="pm-dashboard-wrapper"></div>
+        </div>
+    </section>
+
     <!-- Tech Stack Section -->
     <section class="tech-stack" id="tech-stack">
         <div class="section-container">
             <div class="section-header">
-                <span class="section-tag">04 / Tools</span>
+                <span class="section-tag">05 / Tools</span>
                 <h2 class="section-title">Công nghệ & Công cụ</h2>
             </div>
             <div class="tech-grid">
@@ -298,7 +312,7 @@
     <footer id="contact">
         <div class="section-container">
             <div class="section-header">
-                <span class="section-tag">05 / Contact</span>
+                <span class="section-tag">06 / Contact</span>
                 <h2 class="section-title">Kết nối với tôi</h2>
             </div>
             <p class="footer-desc">Hãy liên hệ nếu bạn muốn hợp tác hoặc trao đổi về các cơ hội chuyển đổi số.</p>
@@ -363,6 +377,11 @@
     </div>
 
     <script src="main.js"></script>
+    <script src="plugins/project-management/pm-dashboard.js"></script>
+    <script>
+      const pmDash = new PMDashboard('pm-dashboard-widget', './plugins/project-management/master-ai-data.json');
+      pmDash.init();
+    </script>
     <script src="chatbot.js"></script>
 </body>
 </html>

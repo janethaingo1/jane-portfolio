@@ -8,13 +8,65 @@ const API_URL = 'https://9router.vuhai.io.vn/v1';
 const API_KEY = 'sk-4bd27113b7dc78d1-lh6jld-f4f9c69f';
 const MODEL_ID = 'ces-chatbot-gpt-5.4';
 
+// Master AI data path (shared with PM Dashboard plugin)
+const MASTER_AI_DATA_PATH = './plugins/project-management/master-ai-data.json';
+
 let KnowledgeBase = "";
 let MessagesMemory = [];
 
 /**
- * Initialize Knowledge Base from File
+ * Build knowledge base text from master JSON data
+ */
+function buildKnowledgeFromMasterData(data) {
+    const { expert, kpis, projects, skills, education, certifications, awards } = data;
+    return `Expert: ${expert.name}
+Positioning: ${expert.title} at ${expert.company}
+Summary: ${expert.summary}
+Location: ${expert.location}
+Contact: ${expert.email}
+LinkedIn: ${expert.linkedin}
+Languages: ${expert.languages.join(', ')}
+
+Key KPIs:
+- ${kpis.yearsExperience}+ years of experience
+- ${kpis.userAdoptionRate}% user adoption rate achieved
+- ${kpis.mrrGrowth}% MRR growth delivered
+- ${kpis.projectsSLAMet}/${kpis.projectsTotal} projects met SLA
+- ${kpis.integrations}+ ATS/CRM integrations managed
+- ${kpis.satisfactionScore}% satisfaction score
+
+Projects:
+${projects.map(p => `- ${p.name} (${p.company}, ${p.region}, ${p.period}): ${p.highlights.join('; ')}`).join('\n')}
+
+Core Skills: ${skills.methodologies.join(', ')}
+Digital: ${skills.digital.join(', ')}
+Tools: ${skills.tools.join(', ')}
+Domains: ${skills.domains.join(', ')}
+
+Education: ${education.map(e => `${e.degree} — ${e.institutions.join(' & ')}`).join('; ')}
+Certifications: ${certifications.map(c => `${c.name} (${c.year})`).join(', ')}
+Awards: ${awards.map(a => `${a.name} — ${a.org} (${a.year})`).join(', ')}`;
+}
+
+/**
+ * Initialize Knowledge Base — syncs from master JSON first, falls back to txt
  */
 async function loadKnowledgeBase() {
+    // 1. Try master AI JSON (shared source for all AI consumers)
+    try {
+        const res = await fetch(MASTER_AI_DATA_PATH);
+        if (res.ok) {
+            const masterData = await res.json();
+            KnowledgeBase = buildKnowledgeFromMasterData(masterData);
+            console.info('[Chatbot] Knowledge synced from master-ai-data.json');
+            initializeSystemRole();
+            return;
+        }
+    } catch (e) {
+        console.warn('[Chatbot] Master AI sync failed, falling back to chatbot_data.txt', e);
+    }
+
+    // 2. Fallback to chatbot_data.txt
     try {
         const response = await fetch('chatbot_data.txt');
         if (!response.ok) throw new Error("Could not load knowledge base file.");
@@ -24,7 +76,7 @@ async function loadKnowledgeBase() {
         console.warn("Knowledge base load error, using default fallback.", err);
         KnowledgeBase = `Expert: Thai Ngo (Jane)
 Positioning: Senior Product Owner & Digital Transformation Leader
-Experience: 5+ years managing SaaS & DXaS products in Agile/Kanban environments
+Experience: 7+ years managing SaaS & DXaS products in Agile/Kanban environments
 Expertise: Product Management, Digital Transformation, Agile Leadership, AI & Automation
 Location: Ho Chi Minh City, Vietnam
 Contact: jane.thaingo1@gmail.com
